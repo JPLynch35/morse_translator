@@ -18,7 +18,7 @@ class TranslatorTest < Minitest::Test
   end
 
   def test_morse_to_eng
-    assert_output(/hello world/) {@translator.eng_to_morse(".... . .-.. .-.. ---  .-- --- .-. .-.. -..")}
+    assert_output(/hello world/) {@translator.morse_to_eng(".... . .-.. .-.. ---  .-- --- .-. .-.. -..")}
   end
 
 end
