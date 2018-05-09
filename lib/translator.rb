@@ -44,12 +44,11 @@ class Translator
 
   def eng_to_morse(message)
     translated = ""
-    message.length.times do |letter|
+    message.downcase.chars.each do |letter|
       letter_code = @dictionary[letter]
-      binding.pry
       translated.concat(letter_code)
     end
-    translated
+    puts translated
   end
 
 end
