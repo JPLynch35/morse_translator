@@ -51,4 +51,10 @@ class Translator
     puts translated
   end
 
+  def from_file(file)
+    File.open("./lib/"+file, "r").each_line do |line|
+      eng_to_morse
+    end
+  end
+
 end
