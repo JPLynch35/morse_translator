@@ -1,5 +1,3 @@
-require 'pry'
-
 class Translator
 
   def initialize
@@ -43,18 +41,26 @@ class Translator
   end
 
   def eng_to_morse(message)
-    translated = ""
+    translated_to_morse = ""
     message.downcase.chars.each do |letter|
       letter_code = @dictionary[letter]
-      translated.concat(letter_code)
+      translated_to_morse.concat(letter_code)
     end
-    puts translated
+    puts translated_to_morse
   end
 
   def from_file(file)
     File.open("./lib/"+file, "r").each_line do |line|
       eng_to_morse(line)
     end
+  end
+
+  def morse_to_eng(morse)
+    translated_to_eng = ""
+    morse.split(/\s/).map do |morse_word|
+      translated_to_eng.concat(@dictionary.index(morse_word))
+    end
+    puts translated_to_eng
   end
 
 end
