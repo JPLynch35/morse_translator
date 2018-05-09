@@ -1,3 +1,5 @@
+require 'pry'
+
 class Translator
 
   def initialize
@@ -39,4 +41,15 @@ class Translator
                     "0" => "-----",
                     " " => " "}
   end
+
+  def eng_to_morse(message)
+    translated = ""
+    message.length.times do |letter|
+      letter_code = @dictionary[letter]
+      binding.pry
+      translated.concat(letter_code)
+    end
+    translated
+  end
+
 end
