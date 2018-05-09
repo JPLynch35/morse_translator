@@ -53,7 +53,7 @@ class Translator
 
   def from_file(file)
     File.open("./lib/"+file, "r").each_line do |line|
-      eng_to_morse
+      eng_to_morse(line)
     end
   end
 
