@@ -57,8 +57,13 @@ class Translator
 
   def morse_to_eng(morse)
     translated_to_eng = ""
-    morse.split(/\s/).map do |morse_word|
-      translated_to_eng.concat(@dictionary.index(morse_word))
+    morse.gsub(" ", "#").split("#").each do |morse_letter|
+      if morse_letter == ""
+        morse_letter = " "
+        translated_to_eng.concat(@dictionary.index(morse_letter))
+      else
+        translated_to_eng.concat(@dictionary.index(morse_letter))
+      end
     end
     puts translated_to_eng
   end
